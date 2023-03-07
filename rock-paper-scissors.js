@@ -20,9 +20,9 @@
 let choiceString = ["","Rock", "Paper", "Scissors"]; //the first index is empty as the user choice begins at index 1
 let choice = parseInt(prompt("Choose 1 for Rock, 2 for paper, and 3 for scissors."));
 let computerChoice = getComputerChoice();
-let selectionOutputString = `Your selection is: ${choiceString[choice]}\n and the computers selection is: ${choiceString[computerChoice]}\n`;
+let selectionOutputString = `Your selection is: ${choiceString[choice]} and the computers selection is: ${choiceString[computerChoice]}\n`;
 let computerWinnerString = "The winner of this game is the computer!";
-let userWinnerString = "The winner of this game is you! Congrats ⭐";
+let userWinnerString = "The winner of this game is you! Congrats!!";
 let winner = false;
 
 
@@ -40,38 +40,38 @@ function getComputerChoice() {
 }
 
 function getWinner(choice, computerChoice) {
-    let selectionOutputString = `Your selection is: ${choiceString[choice]}\n and the computers selection is: ${choiceString[computerChoice]}\n`;
+    let selectionOutputString = `Your selection is: ${choiceString[choice]} and the computers selection is: ${choiceString[computerChoice]}\n`;
     switch (true) {
         case choice === 1 && computerChoice === 3:
-            console.log(selectionOutputString + userWinnerString);
+            alert(selectionOutputString + userWinnerString);
             winner = true;
             break;
         case choice === 2 && computerChoice === 1:
-            console.log(selectionOutputString + userWinnerString);
+            alert(selectionOutputString + userWinnerString);
             winner = true;
             break;
         case choice === 2 && computerChoice === 3:
-            console.log(selectionOutputString + computerWinnerString);
+            alert(selectionOutputString + computerWinnerString);
             winner = true;
             break;
         case choice === 3 && computerChoice === 1:
-            console.log(selectionOutputString + computerWinnerString);
+            alert(selectionOutputString + computerWinnerString);
             winner = true;
             break;
         case choice === 3 && computerChoice === 2:
-            console.log(selectionOutputString + userWinnerString);
+            alert(selectionOutputString + userWinnerString);
             winner = true;
             break;
         default:
-            console.log(selectionOutputString);
-            console.log("The game is tied, please play again!");
+            alert(selectionOutputString);
+            alert("The game is tied, please play again!");
             winner = false;
     }
-    if (!winner) {
-        choice = parseInt(prompt("Play again! Choose 1 for Rock, 2 for paper, and 3 for scissors."));
-        computerChoice = getComputerChoice();
-        selectionOutputString = `Your selection is: ${choiceString[choice]}\n and the computers selection is: ${choiceString[computerChoice]}\n`;
-    }
+    // if (!winner) {
+    //     choice = parseInt(prompt("Play again! Choose 1 for Rock, 2 for paper, and 3 for scissors."));
+    //     computerChoice = getComputerChoice();
+    //     selectionOutputString = `Your selection is: ${choiceString[choice]}\n and the computers selection is: ${choiceString[computerChoice]}\n`;
+    // }
     return winner;
 }
 
