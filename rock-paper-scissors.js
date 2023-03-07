@@ -40,6 +40,7 @@ function getComputerChoice() {
 }
 
 function getWinner(choice, computerChoice) {
+    let selectionOutputString = `Your selection is: ${choiceString[choice]}\n and the computers selection is: ${choiceString[computerChoice]}\n`;
     switch (true) {
         case choice === 1 && computerChoice === 3:
             console.log(selectionOutputString + userWinnerString);
