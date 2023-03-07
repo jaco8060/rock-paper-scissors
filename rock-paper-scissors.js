@@ -32,6 +32,10 @@ while (winner == false) {
         continue;
     }
     winner = getWinner(choice, computerChoice);
+    if (!winner) {
+        choice = parseInt(prompt("Play again! Choose 1 for Rock, 2 for paper, and 3 for scissors."));
+        computerChoice = getComputerChoice();
+    }
 }
 
 function getComputerChoice() {
@@ -67,11 +71,7 @@ function getWinner(choice, computerChoice) {
             alert("The game is tied, please play again!");
             winner = false;
     }
-    // if (!winner) {
-    //     choice = parseInt(prompt("Play again! Choose 1 for Rock, 2 for paper, and 3 for scissors."));
-    //     computerChoice = getComputerChoice();
-    //     selectionOutputString = `Your selection is: ${choiceString[choice]}\n and the computers selection is: ${choiceString[computerChoice]}\n`;
-    // }
+
     return winner;
 }
 
