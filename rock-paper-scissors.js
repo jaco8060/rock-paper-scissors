@@ -20,9 +20,7 @@
 let choiceString = ["","Rock", "Paper", "Scissors"]; //the first index is empty as the user choice begins at index 1
 let choice = parseInt(prompt("Choose 1 for Rock, 2 for paper, and 3 for scissors."));
 let computerChoice = getComputerChoice();
-let selectionOutputString = `Your selection is: ${choiceString[choice]} and the computers selection is: ${choiceString[computerChoice]}\n`;
-let computerWinnerString = "The winner of this game is the computer!";
-let userWinnerString = "The winner of this game is you! Congrats!!";
+// let selectionOutputString = `Your selection is: ${choiceString[choice]}\nComputers selection is: ${choiceString[computerChoice]}\n`;
 let winner = false;
 
 
@@ -44,7 +42,9 @@ function getComputerChoice() {
 }
 
 function getWinner(choice, computerChoice) {
-    let selectionOutputString = `Your selection is: ${choiceString[choice]} and the computers selection is: ${choiceString[computerChoice]}\n`;
+    let selectionOutputString = `Your selection is: ${choiceString[choice]}\nComputers selection is: ${choiceString[computerChoice]}\n`;
+    let computerWinnerString = `${choiceString[choice]} beats ${choiceString[computerChoice]}, you lost :(`;
+    let userWinnerString = `${choiceString[choice]} beats ${choiceString[computerChoice]}, you won!!`;
     switch (true) {
         case choice === 1 && computerChoice === 3:
             alert(selectionOutputString + userWinnerString);
