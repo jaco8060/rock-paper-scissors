@@ -17,7 +17,7 @@
 //set a winner variable to false
 // set a while loop that continues running the function until a winner is apparent
 
-let choiceString = ["", "Rock", "Paper", "Scissors"]; //the first index is empty as the user choice begins at index 1
+let choiceString = { 1: "Rock", 2: "Paper", 3: "Scissors" }; // table for choices from user
 let choice = parseInt(
   prompt("Choose 1 for Rock, 2 for paper, and 3 for scissors.")
 );
