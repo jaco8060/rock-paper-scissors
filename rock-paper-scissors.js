@@ -23,9 +23,11 @@ let choice = parseInt(
 );
 let computerChoice = getComputerChoice();
 // let selectionOutputString = `Your selection is: ${choiceString[choice]}\nComputers selection is: ${choiceString[computerChoice]}\n`;
-let winner = false;
-
-while (winner == false) {
+// let winner = false;
+let round = 0;
+let userScore = 0;
+let compScore = 0;
+while (round < 5) {
   if (choice < 1 || choice > 3) {
     choice = parseInt(
       prompt(
@@ -34,8 +36,21 @@ while (winner == false) {
     );
     continue;
   }
+
   winner = getWinner(choice, computerChoice);
-  if (!winner) {
+
+  if (winner == "user") {
+    userScore += 1;
+    round += 1;
+    alert(whosWinning(userScore, compScore));
+  } else if (winner == "comp") {
+    compScore += 1;
+    round += 1;
+    alert(whosWinning(userScore, compScore));
+  } else if (winner == "tie") {
+    alert(whosWinning(userScore, compScore));
+  }
+  if (round != 5) {
     choice = parseInt(
       prompt("Play again! Choose 1 for Rock, 2 for paper, and 3 for scissors.")
     );
@@ -43,6 +58,24 @@ while (winner == false) {
   }
 }
 
+if (userScore < compScore) {
+  alert(
+    `the winner is the opponent with a final score of ${compScore}:${userScore}`
+  );
+} else if (userScore > compScore) {
+  alert(
+    `the winner is the opponent with a final score of ${userScore}:${compScore}`
+  );
+}
+function whosWinning(userScore, compScore) {
+  if (userScore < compScore) {
+    return `Your opponent is winning with a score of ${compScore} to your score of ${userScore} \n the score is now: ${compScore}:${userScore}`;
+  } else if (userScore > compScore) {
+    return `You are winning with a score of ${userScore} to the computer's ${compScore} \n the score is now: ${userScore}:${compScore}`;
+  } else {
+    return `The game is tied! \n the score is now: ${userScore}:${compScore}`;
+  }
+}
 function getComputerChoice() {
   let computerChoice = Math.floor(Math.random() * (4 - 1) + 1); //random integer between 1 (inclusive) and 3
   return computerChoice;
@@ -50,33 +83,40 @@ function getComputerChoice() {
 
 function getWinner(choice, computerChoice) {
   let selectionOutputString = `Your selection is: ${choiceString[choice]}\nComputers selection is: ${choiceString[computerChoice]}\n`;
-  let computerWinnerString = `${choiceString[choice]} beats ${choiceString[computerChoice]}, you lost :(`;
-  let userWinnerString = `${choiceString[choice]} beats ${choiceString[computerChoice]}, you won!!`;
+  let computerWinnerString = `${choiceString[choice]} beats ${choiceString[computerChoice]}, you lost the round :(`;
+  let userWinnerString = `${choiceString[choice]} beats ${choiceString[computerChoice]}, you won the round!!`;
+  let winner = "";
   switch (true) {
     case choice === 1 && computerChoice === 3:
       alert(selectionOutputString + userWinnerString);
-      winner = true;
+      winner = "user";
+      break;
+    case choice === 1 && computerChoice === 2:
+      alert(selectionOutputString + computerWinnerString);
+      winner = "comp";
       break;
     case choice === 2 && computerChoice === 1:
       alert(selectionOutputString + userWinnerString);
-      winner = true;
+      winner = "comp";
       break;
     case choice === 2 && computerChoice === 3:
       alert(selectionOutputString + computerWinnerString);
-      winner = true;
+      winner = "comp";
       break;
     case choice === 3 && computerChoice === 1:
-      alert(selectionOutputString + computerWinnerString);
-      winner = true;
+      alert(selectionOutputString + userWinnerString);
+      winner = "user";
       break;
     case choice === 3 && computerChoice === 2:
       alert(selectionOutputString + userWinnerString);
-      winner = true;
+      winner = "user";
       break;
     default:
       alert(selectionOutputString);
-      alert("The game is tied, please play again!");
-      winner = false;
+      alert(
+        `You and your opponent both selected ${choiceString[choice]}. No one won the round! please play again!`
+      );
+      winner = "tie";
   }
 
   return winner;
