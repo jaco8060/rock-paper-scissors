@@ -4,68 +4,73 @@ font-family: 'Sacramento', cursive; */
 html {
       font-family: 'Merriweather', serif;
   }
-body {
+.container-main {
+      
       align-items: center;
       display: flex;
       flex-direction: column;
       gap: 8rem;
       height: 100vh;
       justify-content: center;
+      flex-wrap: wrap;
   }
 .winnerBox {
       background-color: beige;
       border-radius: 5px;
       border: solid black;
       font-family: "Roboto", ;
-      padding: 20px;
+      padding: 1rem;
       white-space: pre-line;
-
+      display: none;
     /* used to allow new lines in the formatted text */
   }
 .winner-container {
             display: flex;
             justify-content: center;
+            align-items: center;
         }
 .container {
-      align-items: center;
+      /* align-items: center; */
       display: flex;
-      gap: 10px;
+      gap: 1rem;
       justify-content: center;
+      
   }
 /* button {
             background-color: aliceblue;
             font-family: 'Merriweather', serif;
         } */
 img {
-      color:none;
-      height: 200px;
-      width: 200px;
+  max-width: 10rem;
+  height: auto;
+  min-width: none;
+  /* width: auto\9; ie8 */
   }
 img:hover {
       background: wheat;
   }
 .scoreBox{
       border: solid black;
-      height: fit-content;
-      padding: 10px;
+      /* height: fit-content; */
+      padding: 1rem;
       white-space: pre-line;
-      width: fit-content;
+      /* width: fit-content; */
   }
 .title {
       font-family: 'Sacramento', cursive;
       font-size: 2rem;
   }
 .resetButton {
-      align-items: center;
-      border-radius: 5px;
+      /* align-items: center; */
+      border-radius: 0.7rem;
       border: solid black;
       display: flex;
       font-size: 2rem;
-      gap: 10px;
-      height: fit-content;
+      gap: 1rem;
+      /* height: fit-content; */
       justify-content: center;
-      margin: 20px;
-      width: fit-content;
+      margin: auto;
+      /* width: fit-content; */
   }
 .resetButton:hover{
       background-color: aquamarine;

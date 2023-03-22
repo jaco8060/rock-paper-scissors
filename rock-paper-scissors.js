@@ -26,6 +26,9 @@ function btnClick(e) {
   const scoreBox = document.querySelector(".scoreBox");
 
   const { winner, winnerText } = getWinner(choice, computerChoice);
+
+  winnerBox.style.display = "block"; // make the box visible
+
   // console.log(winnerText);
   if (winner == "user") {
     userScore += 1;
@@ -44,7 +47,7 @@ function btnClick(e) {
   console.log(round);
   if (round == 5) {
     //selectors
-    const body = document.querySelector("body");
+    const containerMain = document.querySelector(".container-main");
     const container = document.querySelector("container");
     //remove ability to select
     btn1.removeEventListener("click", btnClick);
@@ -56,7 +59,7 @@ function btnClick(e) {
     const resetBtn = document.createElement("button");
     resetBtn.classList.add("resetButton");
     resetBtn.textContent = "Reset";
-    body.appendChild(resetBtn);
+    containerMain.appendChild(resetBtn);
     resetBtn.addEventListener("click", resetGame);
   }
 }
@@ -76,6 +79,8 @@ function resetGame(e) {
   round = 0;
   winner = "";
   winnerText = "";
+  winnerBox.style.display = "none"; // make the box visible
+
   winnerBox.textContent = "";
   scoreBox.innerHTML =
     '<span class="title">Score:</span><br /><strong>You:</strong><br /><strong>Computer:</strong>';
