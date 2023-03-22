@@ -63,9 +63,9 @@ function btnClick(e) {
 
 function winnerOfGame(userScore, compScore) {
   if (userScore > compScore) {
-    return `You won!! Congrats!! Click the reset button below to start a new game.`;
+    return `${choiceString[choice]} beats ${choiceString[computerChoice]}, You won!! Congrats!! Click the reset button below to start a new game.`;
   } else if (compScore > userScore) {
-    return `You lost :( Click the reset button below to start a new game.`;
+    return `${choiceString[computerChoice]} beats ${choiceString[choice]}, You lost :( Click the reset button below to start a new game.`;
   }
 }
 function resetGame(e) {
