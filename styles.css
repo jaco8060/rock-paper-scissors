@@ -8,18 +8,34 @@ html {
     font-family: "Roboto", ;
     white-space: pre-line; 
     /* used to allow new lines in the formatted text */
-
+    border-radius: 5px;
+    border: solid black;
+    padding: 20px;
+    background-color: beige;
 }
 .winner-container {
+    
     display: flex;
     justify-content: center;
+
 }
 .container {
     display: flex;
     justify-content: center; 
     gap: 10px;
 }
-button {
+/* button {
+    
     font-family: 'Merriweather', serif;
     background-color: aliceblue;
+} */
+
+img {
+    width: 200px;
+    height: 200px;
+    color:none;
+}
+
+img:hover {
+    background: wheat;
 }
