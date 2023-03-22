@@ -4,6 +4,14 @@ font-family: 'Sacramento', cursive; */
 html {
     font-family: 'Merriweather', serif;
 }
+body {
+    display: flex;
+    flex-direction: column;
+    gap: 8rem;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 .winnerBox {
     font-family: "Roboto", ;
     white-space: pre-line; 
@@ -23,6 +31,7 @@ html {
     display: flex;
     justify-content: center; 
     gap: 10px;
+    align-items: center;
 }
 /* button {
     
@@ -38,4 +47,34 @@ img {
 
 img:hover {
     background: wheat;
+}
+.scoreBox{
+    white-space: pre-line; 
+    border: solid black;
+    width: fit-content;
+    height: fit-content;
+    padding: 10px;
+    
+}
+
+.title {
+    font-family: 'Sacramento', cursive;
+    font-size: 2rem;
+}
+
+.resetButton {
+    display: flex;
+    justify-content: center; 
+    gap: 10px;
+    align-items: center;
+    border-radius: 5px;
+    border: solid black;
+    width: fit-content;
+    height: fit-content;
+    margin: 20px;
+    font-size: 2rem;
+}
+
+.resetButton:hover{
+    background-color: aquamarine;
 }
