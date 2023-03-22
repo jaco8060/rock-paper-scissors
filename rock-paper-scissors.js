@@ -14,11 +14,10 @@ btn3.addEventListener("click", btnClick);
 function btnClick(e) {
   let choiceString = { 1: "Rock", 2: "Paper", 3: "Scissors" }; // table for choices from user
 
-  btn1.disabled = true;
-  btn2.disabled = true;
-  btn3.disabled = true;
+  // btn1.disabled = true;
+  // btn2.disabled = true;
+  // btn3.disabled = true;
 
-  isExecuting = true;
   computerChoice = getComputerChoice();
 
   if (e.target.className == "btn1") {
@@ -73,11 +72,11 @@ function btnClick(e) {
   }
   // Re-enable the button after 500ms (adjust as needed)
 
-  setTimeout(() => {
-    btn1.disabled = false;
-    btn2.disabled = false;
-    btn3.disabled = false;
-  }, 500);
+  // setTimeout(() => {
+  //   btn1.disabled = false;
+  //   btn2.disabled = false;
+  //   btn3.disabled = false;
+  // }, 500);
 }
 
 function winnerOfGame(userScore, compScore, winner) {
