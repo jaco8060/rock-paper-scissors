@@ -116,7 +116,7 @@ function getWinner(choice, computerChoice) {
       winner = "comp";
       break;
     case choice === 3 && computerChoice === 1:
-      winnerText = selectionOutputString + compWinnerString;
+      winnerText = selectionOutputString + computerWinnerString;
       winner = "comp";
       break;
     case choice === 3 && computerChoice === 2:
