@@ -44,7 +44,6 @@ function btnClick(e) {
   console.log(round);
   if (round == 5) {
     //selectors
-    const resetBtn = document.createElement("button");
     const body = document.querySelector("body");
     const container = document.querySelector("container");
     //remove ability to select
@@ -54,6 +53,7 @@ function btnClick(e) {
     //display winner
     winnerBox.textContent = winnerOfGame(userScore, compScore);
     //add reset button
+    const resetBtn = document.createElement("button");
     resetBtn.classList.add("resetButton");
     resetBtn.textContent = "Reset";
     body.appendChild(resetBtn);

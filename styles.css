@@ -2,79 +2,71 @@
 font-family: 'Montserrat', sans-serif;
 font-family: 'Sacramento', cursive; */
 html {
-    font-family: 'Merriweather', serif;
-}
+      font-family: 'Merriweather', serif;
+  }
 body {
-    display: flex;
-    flex-direction: column;
-    gap: 8rem;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      gap: 8rem;
+      height: 100vh;
+      justify-content: center;
+  }
 .winnerBox {
-    font-family: "Roboto", ;
-    white-space: pre-line; 
+      background-color: beige;
+      border-radius: 5px;
+      border: solid black;
+      font-family: "Roboto", ;
+      padding: 20px;
+      white-space: pre-line;
+
     /* used to allow new lines in the formatted text */
-    border-radius: 5px;
-    border: solid black;
-    padding: 20px;
-    background-color: beige;
-}
+  }
 .winner-container {
-    
-    display: flex;
-    justify-content: center;
-
-}
+            display: flex;
+            justify-content: center;
+        }
 .container {
-    display: flex;
-    justify-content: center; 
-    gap: 10px;
-    align-items: center;
-}
+      align-items: center;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+  }
 /* button {
-    
-    font-family: 'Merriweather', serif;
-    background-color: aliceblue;
-} */
-
+            background-color: aliceblue;
+            font-family: 'Merriweather', serif;
+        } */
 img {
-    width: 200px;
-    height: 200px;
-    color:none;
-}
-
+      color:none;
+      height: 200px;
+      width: 200px;
+  }
 img:hover {
-    background: wheat;
-}
+      background: wheat;
+  }
 .scoreBox{
-    white-space: pre-line; 
-    border: solid black;
-    width: fit-content;
-    height: fit-content;
-    padding: 10px;
-    
-}
-
+      border: solid black;
+      height: fit-content;
+      padding: 10px;
+      white-space: pre-line;
+      width: fit-content;
+  }
 .title {
-    font-family: 'Sacramento', cursive;
-    font-size: 2rem;
-}
-
+      font-family: 'Sacramento', cursive;
+      font-size: 2rem;
+  }
 .resetButton {
-    display: flex;
-    justify-content: center; 
-    gap: 10px;
-    align-items: center;
-    border-radius: 5px;
-    border: solid black;
-    width: fit-content;
-    height: fit-content;
-    margin: 20px;
-    font-size: 2rem;
-}
-
+      align-items: center;
+      border-radius: 5px;
+      border: solid black;
+      display: flex;
+      font-size: 2rem;
+      gap: 10px;
+      height: fit-content;
+      justify-content: center;
+      margin: 20px;
+      width: fit-content;
+  }
 .resetButton:hover{
-    background-color: aquamarine;
-}
+      background-color: aquamarine;
+  }
