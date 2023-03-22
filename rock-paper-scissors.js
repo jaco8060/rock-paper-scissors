@@ -12,9 +12,13 @@ btn1.addEventListener("click", btnClick);
 btn2.addEventListener("click", btnClick);
 btn3.addEventListener("click", btnClick);
 function btnClick(e) {
+  let choiceString = { 1: "Rock", 2: "Paper", 3: "Scissors" }; // table for choices from user
+
   btn1.disabled = true;
   btn2.disabled = true;
   btn3.disabled = true;
+
+  isExecuting = true;
   computerChoice = getComputerChoice();
 
   if (e.target.className == "btn1") {
@@ -29,7 +33,9 @@ function btnClick(e) {
   const scoreBox = document.querySelector(".scoreBox");
 
   const { winner, winnerText } = getWinner(choice, computerChoice);
-
+  console.log(choice, computerChoice);
+  console.log(winner, winnerText);
+  console.log(userScore, compScore);
   winnerBox.style.display = "block"; // make the box visible
 
   // console.log(winnerText);
@@ -57,7 +63,7 @@ function btnClick(e) {
     btn2.removeEventListener("click", btnClick);
     btn3.removeEventListener("click", btnClick);
     //display winner
-    winnerBox.textContent = winnerOfGame(userScore, compScore);
+    winnerBox.textContent = winnerOfGame(userScore, compScore, winner);
     //add reset button
     const resetBtn = document.createElement("button");
     resetBtn.classList.add("resetButton");
@@ -65,16 +71,24 @@ function btnClick(e) {
     containerMain.appendChild(resetBtn);
     resetBtn.addEventListener("click", resetGame);
   }
-  btn1.disabled = false;
-  btn2.disabled = false;
-  btn3.disabled = false;
+  // Re-enable the button after 500ms (adjust as needed)
+
+  setTimeout(() => {
+    btn1.disabled = false;
+    btn2.disabled = false;
+    btn3.disabled = false;
+  }, 500);
 }
 
-function winnerOfGame(userScore, compScore) {
-  if (userScore > compScore) {
-    return `${choiceString[choice]} beats ${choiceString[computerChoice]}, You won!! Congrats!! Click the reset button below to start a new game.`;
-  } else if (compScore > userScore) {
-    return `${choiceString[computerChoice]} beats ${choiceString[choice]}, You lost :( Click the reset button below to start a new game.`;
+function winnerOfGame(userScore, compScore, winner) {
+  if (winner == "user" && userScore < compScore) {
+    return `${choiceString[choice]} beats ${choiceString[computerChoice]}, you won the round! However it wasn't enough... You lost the game:(\nClick the reset button below to start a new game.`;
+  } else if (winner == "user" && userScore > compScore) {
+    return `${choiceString[choice]} beats ${choiceString[computerChoice]}, you won the round! Congratulations! You won the game!\nClick the reset button below to start a new game.`;
+  } else if (winner == "comp" && userScore > compScore) {
+    return `${choiceString[computerChoice]} beats ${choiceString[choice]}, you lost the round... However you still won the game!! Congratulations!\nClick the reset button below to start a new game.`;
+  } else if (winner == "comp" && userScore < compScore) {
+    return `${choiceString[computerChoice]} beats ${choiceString[choice]}, you lost the round and also lost the game :( better luck next time!\nClick the reset button below to start a new game.`;
   }
 }
 function resetGame(e) {
@@ -85,6 +99,7 @@ function resetGame(e) {
   round = 0;
   winner = "";
   winnerText = "";
+
   winnerBox.style.display = "none"; // make the box visible
 
   winnerBox.textContent = "";
