@@ -77,7 +77,8 @@ function resetGame(e) {
   winner = "";
   winnerText = "";
   winnerBox.textContent = "";
-  scoreBox.innerHTML = "";
+  scoreBox.innerHTML =
+    '<span class="title">Score:</span><br /><strong>You:</strong><br /><strong>Computer:</strong>';
   //remove reset button
   const parentElement = e.target.parentNode;
   parentElement.removeChild(e.target);
