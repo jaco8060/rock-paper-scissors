@@ -12,6 +12,9 @@ btn1.addEventListener("click", btnClick);
 btn2.addEventListener("click", btnClick);
 btn3.addEventListener("click", btnClick);
 function btnClick(e) {
+  btn1.disabled = true;
+  btn2.disabled = true;
+  btn3.disabled = true;
   computerChoice = getComputerChoice();
 
   if (e.target.className == "btn1") {
@@ -62,6 +65,9 @@ function btnClick(e) {
     containerMain.appendChild(resetBtn);
     resetBtn.addEventListener("click", resetGame);
   }
+  btn1.disabled = false;
+  btn2.disabled = false;
+  btn3.disabled = false;
 }
 
 function winnerOfGame(userScore, compScore) {
