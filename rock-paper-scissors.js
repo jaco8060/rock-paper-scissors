@@ -126,7 +126,7 @@ function getComputerChoice() {
 
 function getWinner(choice, computerChoice) {
   let selectionOutputString = `Your selection is: ${choiceString[choice]}\n and the Computers selection is: ${choiceString[computerChoice]}\n`;
-  let computerWinnerString = `${choiceString[choice]} beats ${choiceString[computerChoice]}, you lost the round :(`;
+  let computerWinnerString = `${choiceString[computerChoice]} beats ${choiceString[choice]}, you lost the round :(`;
   let userWinnerString = `${choiceString[choice]} beats ${choiceString[computerChoice]}, you won the round!!`;
   let winner = "";
   let winnerText = "";
