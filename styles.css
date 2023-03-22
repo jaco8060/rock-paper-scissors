@@ -6,13 +6,12 @@ html {
   }
 .container-main {
       
-      align-items: center;
+
+      height: 100vh;
       display: flex;
       flex-direction: column;
-      gap: 8rem;
-      height: 100vh;
-      justify-content: center;
-      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-evenly;
   }
 .winnerBox {
       background-color: beige;
@@ -25,10 +24,10 @@ html {
     /* used to allow new lines in the formatted text */
   }
 .winner-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 .container {
       /* align-items: center; */
       display: flex;
@@ -36,41 +35,36 @@ html {
       justify-content: center;
       
   }
-/* button {
-            background-color: aliceblue;
-            font-family: 'Merriweather', serif;
-        } */
 img {
-  max-width: 10rem;
+  max-width: 100%;
+  width: 8rem;
   height: auto;
-  min-width: none;
-  /* width: auto\9; ie8 */
+  min-width: 4rem;
+  
+  
   }
 img:hover {
       background: wheat;
   }
 .scoreBox{
       border: solid black;
-      /* height: fit-content; */
       padding: 1rem;
       white-space: pre-line;
-      /* width: fit-content; */
+      width: fit-content;
   }
 .title {
       font-family: 'Sacramento', cursive;
       font-size: 2rem;
   }
 .resetButton {
-      /* align-items: center; */
       border-radius: 0.7rem;
       border: solid black;
       display: flex;
       font-size: 2rem;
       gap: 1rem;
-      /* height: fit-content; */
+      
       justify-content: center;
-      margin: auto;
-      /* width: fit-content; */
+      
   }
 .resetButton:hover{
       background-color: aquamarine;
