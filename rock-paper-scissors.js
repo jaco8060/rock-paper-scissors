@@ -18,55 +18,98 @@
 // set a while loop that continues running the function until a winner is apparent
 
 let choiceString = { 1: "Rock", 2: "Paper", 3: "Scissors" }; // table for choices from user
-let choice = parseInt(
-  prompt("Choose 1 for Rock, 2 for paper, and 3 for scissors.")
-);
-let computerChoice = getComputerChoice();
-// let selectionOutputString = `Your selection is: ${choiceString[choice]}\nComputers selection is: ${choiceString[computerChoice]}\n`;
-// let winner = false;
+// let choice = parseInt(
+//   prompt("Choose 1 for Rock, 2 for paper, and 3 for scissors.")
+// );
+// let computerChoice = getComputerChoice();
+// // let selectionOutputString = `Your selection is: ${choiceString[choice]}\nComputers selection is: ${choiceString[computerChoice]}\n`;
+// // let winner = false;
 let round = 0;
 let userScore = 0;
 let compScore = 0;
-while (round < 5) {
-  if (choice < 1 || choice > 3) {
-    choice = parseInt(
-      prompt(
-        "Invalid choice, please choose again. Choose 1 for Rock, 2 for paper, and 3 for scissors."
-      )
-    );
-    continue;
+// while (round < 5) {
+//   if (choice < 1 || choice > 3) {
+//     choice = parseInt(
+//       prompt(
+//         "Invalid choice, please choose again. Choose 1 for Rock, 2 for paper, and 3 for scissors."
+//       )
+//     );
+//     continue;
+//   }
+
+//   winner = getWinner(choice, computerChoice);
+
+//   if (winner == "user") {
+//     userScore += 1;
+//     round += 1;
+//     console.log(whosWinning(userScore, compScore));
+//   } else if (winner == "comp") {
+//     compScore += 1;
+//     round += 1;
+//     console.log(whosWinning(userScore, compScore));
+//   } else if (winner == "tie") {
+//     console.log(whosWinning(userScore, compScore));
+//   }
+//   if (round != 5) {
+//     choice = parseInt(
+//       prompt("Play again! Choose 1 for Rock, 2 for paper, and 3 for scissors.")
+//     );
+//     computerChoice = getComputerChoice();
+//   }
+// }
+
+// if (userScore < compScore) {
+//   console.log(
+//     `the winner is the opponent with a final score of ${compScore}:${userScore}`
+//   );
+// } else if (userScore > compScore) {
+//   console.log(
+//     `the winner is the opponent with a final score of ${userScore}:${compScore}`
+//   );
+// }
+function btnClick(e) {
+  computerChoice = getComputerChoice();
+
+  if (e.target.className == "btn1") {
+    choice = 1;
+  } else if (e.target.className == "btn2") {
+    choice = 2;
+  } else if (e.target.className == "btn3") {
+    choice = 3;
   }
 
-  winner = getWinner(choice, computerChoice);
+  const winnerBox = document.querySelector(".winnerBox");
 
+  const { winner, winnerText } = getWinner(choice, computerChoice);
+  // console.log(winnerText);
   if (winner == "user") {
     userScore += 1;
     round += 1;
-    alert(whosWinning(userScore, compScore));
+    winnerBox.textContent = `${winnerText}
+    ${whosWinning(userScore, compScore)}`;
   } else if (winner == "comp") {
     compScore += 1;
     round += 1;
-    alert(whosWinning(userScore, compScore));
+    winnerBox.textContent = `${winnerText}
+    ${whosWinning(userScore, compScore)}`;
   } else if (winner == "tie") {
-    alert(whosWinning(userScore, compScore));
+    winnerBox.textContent = `${winnerText}
+    ${whosWinning(userScore, compScore)}`;
   }
-  if (round != 5) {
-    choice = parseInt(
-      prompt("Play again! Choose 1 for Rock, 2 for paper, and 3 for scissors.")
-    );
-    computerChoice = getComputerChoice();
-  }
+  // if (round != 5) {
+  //   choice = parseInt(
+  //     prompt("Play again! Choose 1 for Rock, 2 for paper, and 3 for scissors.")
+  //   );
+  // }
 }
+const btn1 = document.querySelector(".btn1");
+const btn2 = document.querySelector(".btn2");
+const btn3 = document.querySelector(".btn3");
 
-if (userScore < compScore) {
-  alert(
-    `the winner is the opponent with a final score of ${compScore}:${userScore}`
-  );
-} else if (userScore > compScore) {
-  alert(
-    `the winner is the opponent with a final score of ${userScore}:${compScore}`
-  );
-}
+btn1.addEventListener("click", btnClick);
+btn2.addEventListener("click", btnClick);
+btn3.addEventListener("click", btnClick);
+
 function whosWinning(userScore, compScore) {
   if (userScore < compScore) {
     return `Your opponent is winning with a score of ${compScore} to your score of ${userScore} \n the score is now: ${compScore}:${userScore}`;
@@ -82,42 +125,40 @@ function getComputerChoice() {
 }
 
 function getWinner(choice, computerChoice) {
-  let selectionOutputString = `Your selection is: ${choiceString[choice]}\nComputers selection is: ${choiceString[computerChoice]}\n`;
+  let selectionOutputString = `Your selection is: ${choiceString[choice]}\n and the Computers selection is: ${choiceString[computerChoice]}\n`;
   let computerWinnerString = `${choiceString[choice]} beats ${choiceString[computerChoice]}, you lost the round :(`;
   let userWinnerString = `${choiceString[choice]} beats ${choiceString[computerChoice]}, you won the round!!`;
   let winner = "";
+  let winnerText = "";
   switch (true) {
     case choice === 1 && computerChoice === 3:
-      alert(selectionOutputString + userWinnerString);
+      winnerText = selectionOutputString + userWinnerString;
       winner = "user";
       break;
     case choice === 1 && computerChoice === 2:
-      alert(selectionOutputString + computerWinnerString);
+      winnerText = selectionOutputString + computerWinnerString;
       winner = "comp";
       break;
     case choice === 2 && computerChoice === 1:
-      alert(selectionOutputString + userWinnerString);
+      winnerText = selectionOutputString + userWinnerString;
       winner = "comp";
       break;
     case choice === 2 && computerChoice === 3:
-      alert(selectionOutputString + computerWinnerString);
+      winnerText = selectionOutputString + computerWinnerString;
       winner = "comp";
       break;
     case choice === 3 && computerChoice === 1:
-      alert(selectionOutputString + userWinnerString);
+      winnerText = selectionOutputString + userWinnerString;
       winner = "user";
       break;
     case choice === 3 && computerChoice === 2:
-      alert(selectionOutputString + userWinnerString);
+      winnerText = selectionOutputString + userWinnerString;
       winner = "user";
       break;
     default:
-      alert(selectionOutputString);
-      alert(
-        `You and your opponent both selected ${choiceString[choice]}. No one won the round! please play again!`
-      );
+      winnerText = `${selectionOutputString}You and your opponent both selected ${choiceString[choice]}. No one won the round! please play again!`;
       winner = "tie";
   }
 
-  return winner;
+  return { winner, winnerText }; //store in an object to return multiple values
 }

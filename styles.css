@@ -1,0 +1,25 @@
+/* font-family: 'Merriweather', serif;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Sacramento', cursive; */
+html {
+    font-family: 'Merriweather', serif;
+}
+.winnerBox {
+    font-family: "Roboto", ;
+    white-space: pre-line; 
+    /* used to allow new lines in the formatted text */
+
+}
+.winner-container {
+    display: flex;
+    justify-content: center;
+}
+.container {
+    display: flex;
+    justify-content: center; 
+    gap: 10px;
+}
+button {
+    font-family: 'Merriweather', serif;
+    background-color: aliceblue;
+}
